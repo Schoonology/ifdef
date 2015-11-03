@@ -1,6 +1,10 @@
 var assert = require('assert')
 
 function emptyCache() {
+  if (!require.cache) {
+    return
+  }
+
   Object.keys(require.cache).forEach(function (key) {
     delete require.cache[key]
   })
